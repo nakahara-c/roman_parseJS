@@ -1,5 +1,8 @@
-
-
+/*
+romanTypingParseDictionary.json
+Copyright (c) 2021 Whitefox
+https://github.com/WhiteFox-Lugh/RomanTypeParser/blob/main/LICENSE
+*/
 
 
 
