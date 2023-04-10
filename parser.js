@@ -41,8 +41,10 @@ async function main() {
     
     const wordbox2 = document.getElementById("wordbox2");
     let res = constructTypeSentence(dict, testWord);
+    let minLengthList = new Array();
     for (const c of res.judgeAutomaton) {
         wordbox2.value += c[0];
+        minLengthList.push(c[0].length);
     }
     let nowHiragana = res.parsedSentence;
     let nowChar = 0;
