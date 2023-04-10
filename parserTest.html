@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        #tweet {
+            background-color: #1d9bf0;
+            color:#FFFFFF;
+        }
+    </style>
+
+    <title>ローマ字あれするやつ</title>
+</head>
+
+<body>
+
+    <section class="hero d">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-2 has-text-centered" style="color:white;opacity:0.9">
+                    ローマ字あれするやつ
+                </h1>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section">
+
+        <div class="tile is-ancestor">
+
+            <div class="tile is-parent container">
+
+                
+
+                <div id="area" class="is-relative mx-auto">
+
+                    <div id="typedKey" class="box column is-2 is-offset-5 has-text-centered" style="font-size:3em;">
+                    &nbsp;
+                    </div>
+
+                    <div class="box column is-8 is-offset-2 has-text-centered">
+                        <input id="wordbox" class="input is-large" style="width:30em;">
+                    </div>
+                    <div class="box column is-8 is-offset-2 has-text-centered">
+                        <input id="wordbox2" class="input is-large" style="width:30em;">
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer py-6">
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
+    <script>
+        VANTA.TOPOLOGY({
+            el: ".hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 100.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x45d459,
+            backgroundColor: 0x22222
+          })
+    </script>
+
+    <script src="parser.js" type="module"></script>
+
+
+</body>
+
+</html>
