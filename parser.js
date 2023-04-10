@@ -1,7 +1,7 @@
 /*
 romanTypingParseDictionary.json
 Copyright (c) 2021 Whitefox
-https://github.com/WhiteFox-Lugh/RomanTypeParser/blob/main/LICENSE
+https://github.com/WhiteFox-Lugh/RomanTypeParser/blob/39d557f35ea727997278ee1b08634464054626a7/LICENSE
 */
 
 
