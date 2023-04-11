@@ -1,9 +1,10 @@
 /*
 romanTypingParseDictionary.json
 Copyright (c) 2021 Whitefox
-https://github.com/WhiteFox-Lugh/RomanTypeParser/blob/39d557f35ea727997278ee1b08634464054626a7/LICENSE
+https://github.com/WhiteFox-Lugh/RomanTypeParser/blob/main/LICENSE
 */
 
+'use strict';
 
 const testWord = "にほんこくみんはこっかのめいよにかけぜんりょくをあげて";
 
@@ -40,35 +41,38 @@ async function main() {
     wordbox1.value = testWord;
     
     const wordbox2 = document.getElementById("wordbox2");
+    
     let res = constructTypeSentence(dict, testWord);
-    let minLengthList = new Array();
+
     for (const c of res.judgeAutomaton) {
         wordbox2.value += c[0];
-        minLengthList.push(c[0].length);
+
     }
     let nowHiragana = res.parsedSentence;
-    let nowChar = 0;
-    let isCompleted = false;
-
+    let currentChar = 0;
+    let tmpMinLength = res.judgeAutomaton[0][0].length;
     window.addEventListener('keydown', (e) => {
+
         typedKey.textContent = e.key;
-        let okPhrases = res.judgeAutomaton[nowChar];
+        let okPhrases = res.judgeAutomaton[currentChar];
         console.log(okPhrases);
         for (let i = 0; i < okPhrases.length; i++) {
             if (e.key === okPhrases[i][0]) {
                 if (okPhrases[i].length > 1) {
-                okPhrases[i] = okPhrases[i].slice(1);
-                wordbox2.value = wordbox2.value.slice(1);
+                    okPhrases[i] = okPhrases[i].slice(1);
+
                 } else if (okPhrases[i].length === 1) {
                     okPhrases[i] = "";
-                    nowChar++;
-                    console.log(nowHiragana);
+                    currentChar++;
+
                     wordbox1.value = wordbox1.value.slice(nowHiragana[0].length);
                     nowHiragana = nowHiragana.slice(1);
+                    wordbox2.value = wordbox2.value.slice(1);    
 
                     break;
+
                 }
-                
+          
             }
         }
 
