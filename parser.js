@@ -51,23 +51,26 @@ async function main() {
     let nowHiragana = res.parsedSentence;
     let currentChar = 0;
     let tmpMinLength = res.judgeAutomaton[0][0].length;
+
     window.addEventListener('keydown', (e) => {
+
+        let deleteFlag = false;
 
         typedKey.textContent = e.key;
         let okPhrases = res.judgeAutomaton[currentChar];
-        console.log(okPhrases);
+
         for (let i = 0; i < okPhrases.length; i++) {
             if (e.key === okPhrases[i][0]) {
+                deleteFlag = true;
+
                 if (okPhrases[i].length > 1) {
                     okPhrases[i] = okPhrases[i].slice(1);
 
                 } else if (okPhrases[i].length === 1) {
                     okPhrases[i] = "";
                     currentChar++;
-
                     wordbox1.value = wordbox1.value.slice(nowHiragana[0].length);
                     nowHiragana = nowHiragana.slice(1);
-                    wordbox2.value = wordbox2.value.slice(1);    
 
                     break;
 
@@ -75,6 +78,14 @@ async function main() {
           
             }
         }
+
+        if (deleteFlag === true && tmpMinLength > 0) {
+            wordbox2.value = wordbox2.value.slice(1);    
+            tmpMinLength -= 1;
+        }
+
+        
+
 
     })
 
